@@ -1,5 +1,6 @@
 # InventoryPagesModified
 InventoryPages minecraft plugin, updated and Optimized for Minecraft 1.20.2 + MySQL Support
+Original by: KevinNovak (https://www.spigotmc.org/resources/inventorypages.32432/)
 
 Overview:
 
