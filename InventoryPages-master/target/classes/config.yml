@@ -1,0 +1,128 @@
+# Configuration file for InventoryPages
+# Created by KevinNovak
+
+# ============================================
+# Metrics
+# ============================================
+# Whether or not to collect data on plugin usage
+# Viewable at http://mcstats.org/plugin/InventoryPages/
+metrics: true
+
+# ============================================
+# Items
+# ============================================
+# ID
+#   Any item id (material)
+#   See https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html for a list
+#
+# position
+#   Inventory positions:
+#   ----------------------------------------------
+#   |  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |
+#   ----------------------------------------------
+#   |  9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 |
+#   ----------------------------------------------
+#   | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 |
+#   ----------------------------------------------
+#   Hotbar: (Not usable)
+#   ----------------------------------------------
+#   |    |    |    |    |    |    |    |    |    |
+#   ----------------------------------------------
+#
+# name
+#   The item name
+#   Color codes are supported
+#     See http://minecraft.gamepedia.com/Formatting_codes for color codes
+#     Use the ampersand symbol "&" before the color code number
+#       Ex. "&6" would be gold.
+#
+# lore
+#   Item lore
+#   Color codes also apply here
+#   Place the variable "{CURRENT}" where you would like the current inventory page number
+#   Place the variable "{MAX}" where you would like the max inventory page number
+
+items:
+  # The previous page button item
+  prev:
+    id: CYAN_STAINED_GLASS_PANE
+    position: 18
+    name: '&6Prev Page'
+    lore:
+      - '&3Page {CURRENT}/{MAX}'
+
+  # The next page button item
+  next:
+    id: CYAN_STAINED_GLASS_PANE
+    position: 26
+    name: '&6Next Page'
+    lore:
+      - '&3Page {CURRENT}/{MAX}'
+
+  # The no page button item
+  noPage:
+    id: GRAY_STAINED_GLASS_PANE
+    name: '&6No Pages'
+    lore:
+      - '&3Page {CURRENT}/{MAX}'
+
+# ============================================
+# Commands
+# ============================================
+commands:
+  # Clears the current page and hotbar
+  #   Add "all" after a clear command to clear all pages and hotbar
+  clear:
+    # Will override any existing commands with same name
+    aliases:
+      - 'clear'
+      - 'clearinventory'
+      - 'clearinvent'
+      - 'ci'
+      - 'clean'
+
+# ============================================
+# Saving
+# ============================================
+saving:
+  # Recommended to keep enabled
+  #   If disabled, inventories are only saved when players leave the server
+  enabled: true
+  # How often should inventories be saved to files, in seconds
+  interval: 900
+
+# ============================================
+# Logging
+# ============================================
+logging:
+  saves:
+    # Show in the console when inventories are saved
+    enabled: true
+    # Message to be shown in the console
+    message: 'All inventories have been saved.'
+
+# ============================================
+# Language
+# ============================================
+# Color codes are supported
+#   See http://minecraft.gamepedia.com/Formatting_codes for color codes
+#   Use the ampersand symbol "&" before the color code number
+#     Ex. "&6" would be gold.
+language:
+  noPermission: '&4You do not have access to that command.'
+  clear: '&6Cleared inventory items from hotbar and current page.'
+  clearAll: '&6Cleared inventory items from hotbar and all pages.'
+  itemsMerged: '&7Items have been moved to your inventory pages.'
+  itemsDropped: '&cYour inventory is full, some items have been dropped.'
+
+# ============================================
+# MySQL Configuration
+# ============================================
+mysql:
+  enabled: false
+  host: 'localhost'
+  port: 3306
+  database: 'inventorypages'
+  username: 'root'
+  password: 'password'
+  table_prefix: 'invpages_'
